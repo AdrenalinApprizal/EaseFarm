@@ -10,23 +10,26 @@ export default function Login() {
   const [data, setData] = useState({ username: "", password: "" });
   const router = useRouter();
 
-  const handleLogin = async () => {
+  const handleLogin = async (e: any) => {
+    e.preventDefault();
     try {
       const res = await signIn("credentials", {
         redirect: false,
         username: data.username,
         password: data.password,
-        callbackUrl: "/dashboard",
+        callbackUrl: "/",
       });
 
       if (res?.error) {
         toast.error(res.error);
         throw new Error(res.error);
       } else {
+        router.push("/home");
         router.refresh();
       }
     } catch (error) {
       toast.error("Internal Server Error");
+      console.error(error);
     }
   };
 
@@ -78,11 +81,8 @@ export default function Login() {
           </div>
           <div className="mt-8">
             <button
-              type="submit"
-              className="w-full p-2 text-lg bg-[#007DFA] text-white rounded-lg focus:outline-none"
-              onClick={() => {
-                handleLogin();
-              }}
+              className="w-full p-2 text-lg bg-[#007DFA] text-white rounded-lg focus:outline-none hover:bg-blue-700"
+              onClick={(e) => handleLogin(e)}
             >
               Login
             </button>

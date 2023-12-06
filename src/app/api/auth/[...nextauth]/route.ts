@@ -1,10 +1,10 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { compare } from "bcryptjs";
-import { prisma } from "../../../lib/prisma";
+import { prisma } from "../../../lib/prismadb";
 
 interface Credentials {
-  email: string;
+  username: string;
   password: string;
 }
 
@@ -18,15 +18,15 @@ export const authOptions: NextAuthOptions = {
       credentials: {},
       authorize: async (credentials) => {
         try {
-          const { email, password } = credentials as Credentials;
+          const { username, password } = credentials as Credentials;
 
-          if (!email || !password) {
+          if (!username || !password) {
             throw new Error("Email and password are required");
           }
 
           const user = await prisma.user.findUnique({
             where: {
-              email,
+              username,
             },
           });
 
@@ -38,7 +38,7 @@ export const authOptions: NextAuthOptions = {
             throw new Error("You are not authorized to access this page");
           }
 
-          const isPasswordValid = await compare(password, user.password);
+          const isPasswordValid = password === user.password;
 
           if (!isPasswordValid) {
             throw new Error("Invalid password");
