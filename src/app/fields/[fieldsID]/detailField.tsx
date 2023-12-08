@@ -47,9 +47,9 @@ const DetailedField = () => {
 
   return (
     <div className="min-h-screen bg-[#EBEBEB] py-[137px]">
-      <div className="px-10 grid grid-cols-1 xl:grid-cols-2 gap-x-[25px] gap-y-7">
+      <div className="px-10 grid grid-cols-1 xl:grid-cols-2 gap-[25px]">
         <div className="h-[400px] rounded-3xl drop-shadow-xl bg-white flex justify-center">
-          <div className="p-2 flex flex-col items-center md:gap-4 md:flex-row md:px-10 lg:px-32 xl:px-12">
+          <div className="p-2 flex flex-col items-center md:gap-4 lg:gap-10 md:flex-row md:px-10  xl:px-12">
             <Image src="/farmer1.svg" alt="" width={350} height={350} className="w-[150px] md:w-[350px]"/>
             <div className="w-[200px] flex flex-col items-center">
               <h1 className="text-center text-[34px] font-bold font-dmsans md:text-[68px]">
