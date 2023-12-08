@@ -15,6 +15,11 @@ enum Role {
     ADMIN
 }
 
+enum Status {
+    ON
+    OFF
+}
+
 // make me model user at least the important things is username and password
 model User {
     id       String @id @default(auto()) @map("_id") @db.ObjectId
@@ -22,4 +27,32 @@ model User {
     password String
     email    String @unique
     role     Role   @default(CUSTOMER)
+}
+
+model Field {
+    id               String        @id @default(auto()) @map("_id") @db.ObjectId
+    name             String
+    image            String
+    harvestTime      String
+    pest             Boolean
+    waterSystem      Boolean
+    fertilizerSystem Boolean
+    temperatures     Temperature[]
+    humidities       Humidity[]
+}
+
+model Temperature {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    value     Float
+    createdAt DateTime @default(now())
+    field     Field    @relation(fields: [fieldId], references: [id])
+    fieldId   String   @db.ObjectId
+}
+
+model Humidity {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    value     Float
+    createdAt DateTime @default(now())
+    field     Field    @relation(fields: [fieldId], references: [id])
+    fieldId   String   @db.ObjectId
 }

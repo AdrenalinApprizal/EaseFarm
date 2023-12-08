@@ -4,13 +4,13 @@ const Fields = () => {
   const dummyData = [
     {
       fieldName: "Field 1",
-      humidity: "80%",
+      humidity: "80%", //
       image: "/fields/highland-photo-wallpaper-preview.jpg",
-      temperature: "21°C",
+      temperature: "21°C", //
       harvestTime: "36 days",
-      pest: "None",
-      waterSystem: "OFF",
-      fertilizerSystem: "OFF",
+      pest: false,
+      waterSystem: false,
+      fertilizerSystem: false,
     },
     {
       fieldName: "Field 2",
@@ -18,9 +18,9 @@ const Fields = () => {
       image: "/fields/field.jpg",
       temperature: "21°C",
       harvestTime: "Now!",
-      pest: "None",
-      waterSystem: "OFF",
-      fertilizerSystem: "OFF",
+      pest: false,
+      waterSystem: false,
+      fertilizerSystem: true,
     },
     {
       fieldName: "Field 3",
@@ -28,9 +28,9 @@ const Fields = () => {
       image: "/fields/field.jpg",
       temperature: "21°C",
       harvestTime: "21 days",
-      pest: "None",
-      waterSystem: "OFF",
-      fertilizerSystem: "OFF",
+      pest: false,
+      waterSystem: true,
+      fertilizerSystem: true,
     },
     {
       fieldName: "Field 4",
@@ -38,9 +38,9 @@ const Fields = () => {
       image: "/fields/field.jpg",
       temperature: "21°C",
       harvestTime: "21 days",
-      pest: "Pest detected!",
-      waterSystem: "OFF",
-      fertilizerSystem: "OFF",
+      pest: true,
+      waterSystem: true,
+      fertilizerSystem: false,
     },
   ];
 
@@ -106,8 +106,14 @@ const Fields = () => {
                     src="/fields/water-icon.svg"
                     width={50}
                   />
-                  <p className="text-center text-[#787877] font-semibold bg-[#D9D9D9] rounded-full px-7 py-4">
-                    {field.waterSystem === "ON" ? "On" : "Off"}
+                  <p
+                    className={
+                      field.waterSystem === true
+                        ? `text-center text-green-500 font-semibold bg-green-300 rounded-full px-7 py-4`
+                        : `text-center text-[#787877] font-semibold bg-[#D9D9D9] rounded-full px-7 py-4`
+                    }
+                  >
+                    {field.waterSystem === true ? "On" : "Off"}
                   </p>
                 </div>
 
@@ -119,8 +125,14 @@ const Fields = () => {
                     src="/fields/fertilizer-icon.svg"
                     width={50}
                   />
-                  <p className="text-center text-[#787877] font-semibold bg-[#D9D9D9] rounded-full px-7 py-4">
-                    {field.fertilizerSystem === "ON" ? "On" : "Off"}
+                  <p
+                    className={
+                      field.fertilizerSystem === true
+                        ? `text-center text-green-500 font-semibold bg-green-300 rounded-full px-7 py-4`
+                        : `text-center text-[#787877] font-semibold bg-[#D9D9D9] rounded-full px-7 py-4`
+                    }
+                  >
+                    {field.fertilizerSystem === true ? "On" : "Off"}
                   </p>
                 </div>
               </div>
