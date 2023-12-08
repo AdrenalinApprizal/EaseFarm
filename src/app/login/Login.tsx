@@ -17,18 +17,18 @@ export default function Login() {
         redirect: false,
         username: data.username,
         password: data.password,
-        callbackUrl: "/",
+        callbackUrl: "/home",
       });
 
       if (res?.error) {
         toast.error(res.error);
         throw new Error(res.error);
       } else {
+        toast.success("Login Success");
         router.push("/home");
         router.refresh();
       }
     } catch (error) {
-      toast.error("Internal Server Error");
       console.error(error);
     }
   };
