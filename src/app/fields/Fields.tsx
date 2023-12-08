@@ -1,53 +1,21 @@
 import Image from "next/image";
+import { Field, FieldArea, Humidity, Temperature } from "@prisma/client";
 
-const Fields = () => {
-  const dummyData = [
-    {
-      fieldName: "Field 1",
-      humidity: "80%", //
-      image: "/fields/highland-photo-wallpaper-preview.jpg",
-      temperature: "21°C", //
-      harvestTime: "36 days",
-      pest: false,
-      waterSystem: false,
-      fertilizerSystem: false,
-    },
-    {
-      fieldName: "Field 2",
-      humidity: "80%",
-      image: "/fields/field.jpg",
-      temperature: "21°C",
-      harvestTime: "Now!",
-      pest: false,
-      waterSystem: false,
-      fertilizerSystem: true,
-    },
-    {
-      fieldName: "Field 3",
-      humidity: "80%",
-      image: "/fields/field.jpg",
-      temperature: "21°C",
-      harvestTime: "21 days",
-      pest: false,
-      waterSystem: true,
-      fertilizerSystem: true,
-    },
-    {
-      fieldName: "Field 4",
-      humidity: "80%",
-      image: "/fields/field.jpg",
-      temperature: "21°C",
-      harvestTime: "21 days",
-      pest: true,
-      waterSystem: true,
-      fertilizerSystem: false,
-    },
-  ];
+interface FieldsProps extends Field {
+  temperatures: Temperature[];
+  humidities: Humidity[];
+  fieldArea?: FieldArea;
+}
+
+const Fields = ({ fields }: { fields: FieldsProps[] }) => {
+  function decimalToPercent(decimal: number) {
+    return decimal * 100;
+  }
 
   return (
     <div className="container mx-auto px-4">
       <div className="flex flex-wrap -mx-2 lg:-mx-4">
-        {dummyData.map((field, index) => (
+        {fields.map((field, index) => (
           <div
             className="my-2 px-2 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2"
             key={index}
@@ -62,7 +30,7 @@ const Fields = () => {
               />
               <div className="flex items-center justify-between leading-tight p-2 md:p-4">
                 <h1 className="text-2xl text-black font-semibold">
-                  {field.fieldName}
+                  {field.name}
                 </h1>
                 <p className="text-slate-500 text-sm">
                   Harvest : {field.harvestTime}
@@ -81,7 +49,11 @@ const Fields = () => {
                     width={50}
                   />
                   <p className="text-center text-black font-semibold">
-                    {field.humidity}
+                    {/* get the createdAt paling baru humidity from humidities array */}
+                    {field.humidities[0]
+                      ? decimalToPercent(field.humidities[0].value)
+                      : "-"}
+                    %
                   </p>
                 </div>
 
@@ -94,7 +66,8 @@ const Fields = () => {
                     width={50}
                   />
                   <p className="text-center text-black font-semibold">
-                    {field.temperature}
+                    {field.temperatures[0] ? field.temperatures[0].value : "-"}
+                    °C
                   </p>
                 </div>
 
