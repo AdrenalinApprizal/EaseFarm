@@ -1,16 +1,15 @@
+"use client";
 import Image from "next/image";
-import { Field, FieldArea, Humidity, Temperature } from "@prisma/client";
+import { Field, Humidity, Temperature } from "@prisma/client";
+import { useRouter } from "next/navigation";
 
 interface FieldsProps extends Field {
   temperatures: Temperature[];
   humidities: Humidity[];
-  fieldArea?: FieldArea;
 }
 
 const Fields = ({ fields }: { fields: FieldsProps[] }) => {
-  function decimalToPercent(decimal: number) {
-    return decimal * 100;
-  }
+  const router = useRouter();
 
   return (
     <div className="container mx-auto px-4">
@@ -19,6 +18,7 @@ const Fields = ({ fields }: { fields: FieldsProps[] }) => {
           <div
             className="my-2 px-2 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/2"
             key={index}
+            onClick={() => router.push(`/fields/${field.id}`)}
           >
             <div className="overflow-hidden rounded-[16px] shadow-lg hover:shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-2 cursor-pointer">
               <Image
@@ -49,11 +49,7 @@ const Fields = ({ fields }: { fields: FieldsProps[] }) => {
                     width={50}
                   />
                   <p className="text-center text-black font-semibold">
-                    {/* get the createdAt paling baru humidity from humidities array */}
-                    {field.humidities[0]
-                      ? decimalToPercent(field.humidities[0].value)
-                      : "-"}
-                    %
+                    {field.humidities[0] ? field.humidities[0].value : "-"}%
                   </p>
                 </div>
 
