@@ -3,8 +3,25 @@
 ## EaseFarm
 <p align="justify"> Platform EaseFarm menyediakan inovasi sistem yang berkomitmen untuk membantu petani dalam meningkatkan produktivitas dan keberlanjutan usaha pertanian mereka, dan juga menciptakan pengalaman bertani yang lebih efektif dan efisien. <p>
 
-## How to start this website?
+## Anggota Kelompok 10
+  > Gibran Fasha - 18221069
+  > Devina Ar’raudah - 1822113
+  > Adrenalin Apprizal - 18221125
+  > M. Hanif Al Faithoni - 1822135
+  > Kevin Prayoga - 18221141
 
+## Alur Penggunaan 
+<p align="justify"> Alur penggunaan dari easefarm ini dimulai dari 
+  1. Melakukan login dengan username : gibranfsh dan password : gibranfsh
+  2. Melihat notifikasi lahan yang siap panen
+  3. Melihat detail lahan
+  4. Menerima/Menolak job untuk memanen
+  5. Jika menerima maka lakukan panen lahan
+  6. Jika proses panen sudah selesai, tekan tombo "finish"
+</p>
+
+
+## How to start this website?
 Sebelum menjalankan perangkat lunak ini memerlukan beberapa tools yang harus diinstal terlebih dahulu
 
 1. Visual Studio Code
@@ -42,16 +59,6 @@ pnpm dev
 bun dev
 ```
 7. Buka http://localhost:3000 dengan browser untuk melihat website
-
-## Use Case
-Berikut merupakan tabel daftar use case dari easefarm.
-
-| ID   | Use Case                                   |
-|------|--------------------------------------------|
-| UC-1 | Login                                      |  
-| UC-2 | Notifikasi Tanaman dan Assign Petani       |  
-| UC-3 | Melihat dan Mengelola Kondisi Lahan        |
-| UC-4 | Melihat dan Mengelola Status Lahan         |
 
 ## Referensi
 
