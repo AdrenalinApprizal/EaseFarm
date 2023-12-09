@@ -234,6 +234,10 @@ const DetailedField = ({ field }: { field: FieldsProps }) => {
                       </button>
                     ) : null
                   ) : null
+                ) : field.pest ? (
+                  <p className="text-red-500 font-bold text-xl">
+                    PEST DETECTED!!!
+                  </p>
                 ) : (
                   <p className="pt-2 text-center text-[10px] md:text-[18px] font-normal font-dmsans">
                     Everything{"'"}s alright here

@@ -32,9 +32,19 @@ const Fields = ({ fields }: { fields: FieldsProps[] }) => {
                 <h1 className="text-2xl text-black font-semibold">
                   {field.name}
                 </h1>
-                <p className="text-slate-500 text-sm">
-                  Harvest : {field.harvestTime}
-                </p>
+                {field.pest ? (
+                  <p className="text-red-500 font-bold text-xl">
+                    PEST DETECTED!!!
+                  </p>
+                ) : field.harvestTime === "Now!" ? (
+                  <p className="text-green-500 font-bold text-xl">
+                    Harvest : {field.harvestTime}
+                  </p>
+                ) : (
+                  <p className="text-slate-500 text-sm">
+                    Harvest : {field.harvestTime}
+                  </p>
+                )}
               </div>
 
               <hr className="border border-slate-100" />

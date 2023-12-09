@@ -11,7 +11,7 @@ export async function PATCH(
     return NextResponse.json({ error: "userId not provided" }, { status: 400 });
   }
 
-  const { email, username } = await req.json();
+  const { isFree } = await req.json();
 
   try {
     const user = await prisma.user.findUnique({
@@ -25,8 +25,7 @@ export async function PATCH(
     await prisma.user.update({
       where: { id: userId },
       data: {
-        email: email,
-        username: username,
+        isFree: isFree,
       },
     });
 

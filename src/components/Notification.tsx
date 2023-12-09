@@ -14,7 +14,7 @@ const NotificationItem = ({
   return (
     <div
       className={`w-full py-3 px-4 cursor-pointer rounded-lg transition ${
-        isUnread ? "bg-blue-100 hover:bg-blue-200" : "bg-white"
+        isUnread ? "bg-green-100 hover:bg-green-200" : "bg-white"
       }`}
     >
       <div className="flex items-center mb-2">
