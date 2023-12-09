@@ -42,10 +42,6 @@ const Navbar = ({
     return formattedPathName;
   };
 
-  const toggleBurger = () => {
-    setIsBurgerOpen(!isBurgerOpen);
-  };
-
   const toggleNotification = () => {
     setIsNotificationOpen(!isNotificationOpen);
   };
@@ -147,30 +143,6 @@ const Navbar = ({
                   </button>
                 </div>
               </div>
-
-              <div className="icon-container flex lg:hidden items-center gap-4">
-                <button className="relative" onClick={toggleNotification}>
-                  <MdNotifications
-                    id="notificationIcon"
-                    size={24}
-                    className={hasUnreadNotifications ? "heartbeat" : ""}
-                  />
-                  <NotificationDropdown
-                    isOpen={isNotificationOpen}
-                    notifications={notificationsState}
-                    username={user?.username || ""}
-                    userId={user?.id || ""}
-                  />
-                </button>
-                <button onClick={toggleBurger}>
-                  <Image
-                    src="/icons/hamburger-list.svg"
-                    alt="logo"
-                    width={30}
-                    height={100}
-                  />
-                </button>
-              </div>
             </div>
             <div className="flex text-5xl font-bold text-white mt-24 ml-28">
               Smart
@@ -180,34 +152,6 @@ const Navbar = ({
             </div>
             <div className="flex text-5xl font-bold text-white mt-1 ml-28 mb-24">
               System
-            </div>
-          </div>
-
-          {/* Dropdown Menu */}
-          <div
-            className={`lg:hidden transition absolute inset-x-0 origin-top ${
-              isBurgerOpen ? "scale-y-100" : "scale-y-0"
-            }`}
-          >
-            <div className="px-4 py-2 bg-white border rounded-md shadow-md mt-2">
-              <a href="/account" className="block px-2 py-2 hover:bg-gray-50">
-                Account
-              </a>
-              <a href="/dashboard" className="block px-2 py-2 hover:bg-gray-50">
-                Dashboard
-              </a>
-              <a href="/order" className="block px-2 py-2 hover:bg-gray-50">
-                Order
-              </a>
-              <a href="/history" className="block px-2 py-2 hover:bg-gray-50">
-                History
-              </a>
-              <a
-                href="/logout"
-                className="py-1 px-2 bg-red-600 hover:bg-red-800 text-white rounded-lg cursor-pointer"
-              >
-                Logout
-              </a>
             </div>
           </div>
         </div>
@@ -254,14 +198,14 @@ const Navbar = ({
               </a>
             </div>
             <div>
-              <a href="/">
+              <a href="/dashboard">
                 <button className="rounded-full px-6 py-2 text-white flex items-center gap-2 hover:bg-slate-200 hover:text-black transition-all">
                   Warehouse
                 </button>
               </a>
             </div>
             <div>
-              <a href="/">
+              <a href="/dashboard">
                 <button className="rounded-full px-6 py-2 text-white flex items-center gap-2 hover:bg-slate-200 hover:text-black transition-all">
                   Hotline
                 </button>
@@ -300,57 +244,7 @@ const Navbar = ({
             </div>
           </div>
 
-          <div className="icon-container flex lg:hidden items-center gap-4">
-            <button className="relative" onClick={toggleNotification}>
-              <MdNotifications
-                id="notificationIcon"
-                size={24}
-                className={hasUnreadNotifications ? "heartbeat" : ""}
-              />
-              <NotificationDropdown
-                isOpen={isNotificationOpen}
-                notifications={notificationsState}
-                username={user?.username || ""}
-                userId={user?.id || ""}
-              />
-            </button>
-            <button onClick={toggleBurger}>
-              <Image
-                src="/icons/hamburger-list.svg"
-                alt="logo"
-                width={30}
-                height={100}
-              />
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Dropdown Menu */}
-      <div
-        className={`lg:hidden transition absolute inset-x-0 origin-top ${
-          isBurgerOpen ? "scale-y-100" : "scale-y-0"
-        }`}
-      >
-        <div className="px-4 py-2 bg-white border rounded-md shadow-md mt-2">
-          <a href="/account" className="block px-2 py-2 hover:bg-gray-50">
-            Account
-          </a>
-          <a href="/dashboard" className="block px-2 py-2 hover:bg-gray-50">
-            Dashboard
-          </a>
-          <a href="/order" className="block px-2 py-2 hover:bg-gray-50">
-            Order
-          </a>
-          <a href="/history" className="block px-2 py-2 hover:bg-gray-50">
-            History
-          </a>
-          <a
-            href="/logout"
-            className="py-1 px-2 bg-red-600 hover:bg-red-800 text-white rounded-lg cursor-pointer"
-          >
-            Logout
-          </a>
+          <div className="icon-container flex lg:hidden items-center gap-4"></div>
         </div>
       </div>
     </div>
