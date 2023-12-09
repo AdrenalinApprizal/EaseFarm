@@ -53,19 +53,6 @@ Berikut merupakan tabel daftar use case dari easefarm.
 | UC-3 | Melihat dan Mengelola Kondisi Lahan        |
 | UC-4 | Melihat dan Mengelola Status Lahan         |
 
-### Tampilan Layar Use Case
-
-<h5> UC-1 Login </h5>
-<img src="./Foto.doc/Register.jpg" alt="Register">
-
-<h5> UC-2 Notifikasi Tanaman dan Assign Petani </h5>
-<img src="./Foto.doc/Login.jpg" alt="Loginc">
-
-<h5> UC-3 Melihat dan Mengelola Kondisi Lahan </h5>
-
-<h5> UC-4 Melihat dan Mengelola Status Lahann </h5>
-
-
 ## Referensi
 
 
