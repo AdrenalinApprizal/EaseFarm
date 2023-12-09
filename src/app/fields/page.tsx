@@ -4,12 +4,11 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 import { Session } from "next-auth";
-import { Field, FieldArea, Humidity, Temperature } from "@prisma/client";
+import { Field, Humidity, Temperature } from "@prisma/client";
 
 interface FieldsProps extends Field {
   temperatures: Temperature[];
   humidities: Humidity[];
-  fieldArea?: FieldArea;
 }
 
 const page = async () => {
@@ -21,7 +20,6 @@ const page = async () => {
     include: {
       temperatures: true,
       humidities: true,
-      fieldArea: true,
     },
   });
 

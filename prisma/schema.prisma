@@ -21,13 +21,14 @@ enum Status {
 }
 
 model User {
-    id        String   @id @default(auto()) @map("_id") @db.ObjectId
-    username  String   @unique
-    password  String
-    email     String   @unique
-    role      Role     @default(CUSTOMER)
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    id            String         @id @default(auto()) @map("_id") @db.ObjectId
+    username      String         @unique
+    password      String
+    email         String         @unique
+    role          Role           @default(CUSTOMER)
+    createdAt     DateTime       @default(now())
+    updatedAt     DateTime       @updatedAt
+    notifications Notification[]
 }
 
 model Field {
@@ -38,6 +39,11 @@ model Field {
     pest             Boolean
     waterSystem      Boolean
     fertilizerSystem Boolean
+    isReadyToHarvest Boolean       @default(false)
+    isConfirmed      Boolean       @default(false)
+    isRejected       Boolean       @default(false)
+    isHarvested      Boolean       @default(false)
+    harvestStatus    String        @default("Ready to Harvest Now. Can You Handle It?")
     createdAt        DateTime      @default(now())
     updatedAt        DateTime      @updatedAt
     temperatures     Temperature[]
@@ -75,4 +81,14 @@ model FieldArea {
     updatedAt DateTime @updatedAt
     field     Field    @relation(fields: [fieldId], references: [id])
     fieldId   String   @unique @db.ObjectId
+}
+
+model Notification {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    user      User     @relation(fields: [userId], references: [id])
+    userId    String   @db.ObjectId
+    body      String
+    isRead    Boolean  @default(false)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
