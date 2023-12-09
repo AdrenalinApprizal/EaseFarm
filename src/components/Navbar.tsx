@@ -46,6 +46,10 @@ const Navbar = ({
     setIsNotificationOpen(!isNotificationOpen);
   };
 
+  if (formattedPathName() === "Login") {
+    return null;
+  }
+
   if (formattedPathName() === "") {
     return (
       <div className="w-full z-50 bg-[#044D3A] relative top-0 left-0 transition">
@@ -198,14 +202,14 @@ const Navbar = ({
               </a>
             </div>
             <div>
-              <a href="/dashboard">
+              <a href="/">
                 <button className="rounded-full px-6 py-2 text-white flex items-center gap-2 hover:bg-slate-200 hover:text-black transition-all">
                   Warehouse
                 </button>
               </a>
             </div>
             <div>
-              <a href="/dashboard">
+              <a href="/">
                 <button className="rounded-full px-6 py-2 text-white flex items-center gap-2 hover:bg-slate-200 hover:text-black transition-all">
                   Hotline
                 </button>
