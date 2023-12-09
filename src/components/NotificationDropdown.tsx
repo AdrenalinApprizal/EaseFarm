@@ -1,16 +1,16 @@
-// import { Notification as NotificationModel } from "@prisma/client";
+import { Notification as NotificationModel } from "@prisma/client";
 import Notification from "./Notification";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
 const NotificationDropdown = ({
   isOpen,
-  // notifications,
+  notifications,
   username,
   userId,
 }: {
   isOpen: boolean;
-  // notifications: NotificationModel[];
+  notifications: NotificationModel[];
   username: string;
   userId: string;
 }) => {
@@ -55,9 +55,9 @@ const NotificationDropdown = ({
         </p>
       </div>
       <div className="flex flex-col mt-2 overflow-y-auto max-h-[18rem]">
-        {/* {notifications.map((item, index) => (
+        {notifications.map((item, index) => (
           <Notification key={index} notification={item} username={username} />
-        ))} */}
+        ))}
       </div>
     </div>
   );

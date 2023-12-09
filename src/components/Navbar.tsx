@@ -89,7 +89,9 @@ const Navbar = ({
                   width={32}
                   height={32}
                 />
-                <p className="text-xl font-semibold text-white">EaseFarm</p>
+                <a href="/dashboard">
+                  <p className="text-xl font-semibold text-white">EaseFarm</p>
+                </a>
               </div>
               <div className="icon-container hidden lg:flex items-center gap-4">
                 <div>
@@ -139,12 +141,10 @@ const Navbar = ({
                   </button>
                 </div>
                 <div>
-                  <a href="/account">
-                    <button className="rounded-full shadow-lg px-6 py-2 bg-white text-black flex items-center gap-2 hover:bg-slate-200 transition-all">
-                      <MdOutlineAccountCircle size={24} />
-                      Account
-                    </button>
-                  </a>
+                  <button className="rounded-full shadow-lg px-6 py-2 bg-white text-black flex items-center gap-2 hover:bg-slate-200 transition-all">
+                    <MdOutlineAccountCircle size={24} />
+                    Account
+                  </button>
                 </div>
               </div>
 
@@ -241,7 +241,9 @@ const Navbar = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Image src="/logonavbar.png" alt="logo" width={32} height={32} />
-            <p className="text-xl font-semibold text-white">EaseFarm</p>
+            <a href="/dashboard">
+              <p className="text-xl font-semibold text-white">EaseFarm</p>
+            </a>
           </div>
           <div className="icon-container hidden lg:flex items-center gap-4">
             <div>
@@ -291,12 +293,10 @@ const Navbar = ({
               </button>
             </div>
             <div>
-              <a href="/account">
-                <button className="rounded-full shadow-lg px-6 py-2 bg-white text-black flex items-center gap-2 hover:bg-slate-200 transition-all">
-                  <MdOutlineAccountCircle size={24} />
-                  Account
-                </button>
-              </a>
+              <button className="rounded-full shadow-lg px-6 py-2 bg-white text-black flex items-center gap-2 hover:bg-slate-200 transition-all">
+                <MdOutlineAccountCircle size={24} />
+                Account
+              </button>
             </div>
           </div>
 
