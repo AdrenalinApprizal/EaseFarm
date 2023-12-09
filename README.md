@@ -1,7 +1,18 @@
-# <h1 align="center"> Tugas Besar Layanan Sistem dan Teknolog Informasi <h4 align="center"> Kelompok 7 K01 </h4> </h1>
+# <h1 align="center"> Tugas Besar Layanan Sistem dan Teknolog Informasi <h4 align="center"> Kelompok 7 K01 - Smart Farming System </h4> </h1>
 
 ## EaseFarm
-<p align="justify"> Platform EaseFarm menyediakan inovasi sistem yang berkomitmen untuk membantu petani dalam meningkatkan produktivitas dan keberlanjutan usaha pertanian mereka, dan juga menciptakan pengalaman bertani yang lebih efektif dan efisien. <p>
+<p align="justify"> Easefarm adalah Platform EaseFarm menyediakan inovasi sistem yang berkomitmen untuk membantu petani dalam meningkatkan produktivitas dan keberlanjutan usaha pertanian mereka, dan juga menciptakan pengalaman bertani yang lebih efektif dan efisien. Pada tugas besar ke 4 ini kami akan mengembangkan inovasi pada bisnis proses 3 yaitu panen dan produksi. <p>
+
+## Anggota Kelompok 10
+  > Gibran Fasha - 18221069
+  
+  > Devina Ar’raudah - 1822113
+ 
+  > Adrenalin Apprizal - 18221125
+
+  > M. Hanif Al Faithoni - 1822135
+  
+  > Kevin Prayoga - 18221141
 
 ## How to start this website?
 
@@ -42,6 +53,20 @@ pnpm dev
 bun dev
 ```
 7. Buka http://localhost:3000 dengan browser untuk melihat website
+
+## Alur Penggunaan 
+<p align="justify"> Alur penggunaan dari easefarm ini dimulai dari 
+    
+1. Melakukan login
+   
+   username : gibranfsh dan password : gibranfsh
+   
+3. Melihat notifikasi lahan yang siap panen
+4. Melihat detail lahan
+5. Menerima/Menolak job untuk memanen
+6. Jika menerima maka lakukan panen lahan
+7. Jika proses panen sudah selesai, tekan tombo "finish"
+</p>
 
 ## Use Case
 Berikut merupakan tabel daftar use case dari easefarm.
