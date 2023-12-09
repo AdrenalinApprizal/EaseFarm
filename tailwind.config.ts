@@ -10,6 +10,9 @@ const config: Config = {
     extend: {
       backgroundImage: {
       },
+      fontFamily: {
+        dmsans: ['DM Sans', 'sans-serif']
+      }
     },
   },
   plugins: [],

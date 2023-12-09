@@ -15,11 +15,80 @@ enum Role {
     ADMIN
 }
 
-// make me model user at least the important things is username and password
+enum Status {
+    ON
+    OFF
+}
+
 model User {
-    id       String @id @default(auto()) @map("_id") @db.ObjectId
-    username String @unique
-    password String
-    email    String @unique
-    role     Role   @default(CUSTOMER)
+    id            String         @id @default(auto()) @map("_id") @db.ObjectId
+    username      String         @unique
+    password      String
+    email         String         @unique
+    role          Role           @default(CUSTOMER)
+    createdAt     DateTime       @default(now())
+    updatedAt     DateTime       @updatedAt
+    notifications Notification[]
+}
+
+model Field {
+    id               String        @id @default(auto()) @map("_id") @db.ObjectId
+    name             String
+    image            String
+    harvestTime      String
+    pest             Boolean
+    waterSystem      Boolean
+    fertilizerSystem Boolean
+    isReadyToHarvest Boolean       @default(false)
+    isConfirmed      Boolean       @default(false)
+    isRejected       Boolean       @default(false)
+    isHarvested      Boolean       @default(false)
+    harvestStatus    String        @default("Ready to Harvest Now. Can You Handle It?")
+    createdAt        DateTime      @default(now())
+    updatedAt        DateTime      @updatedAt
+    temperatures     Temperature[]
+    humidities       Humidity[]
+    fieldArea        FieldArea?
+}
+
+model Temperature {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    value     Float
+    week      Int
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    field     Field    @relation(fields: [fieldId], references: [id])
+    fieldId   String   @db.ObjectId
+}
+
+model Humidity {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    value     Float
+    week      Int
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    field     Field    @relation(fields: [fieldId], references: [id])
+    fieldId   String   @db.ObjectId
+}
+
+model FieldArea {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    area      Int
+    riceArea  Float
+    cornArea  Float
+    wheatArea Float
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    field     Field    @relation(fields: [fieldId], references: [id])
+    fieldId   String   @unique @db.ObjectId
+}
+
+model Notification {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    user      User     @relation(fields: [userId], references: [id])
+    userId    String   @db.ObjectId
+    body      String
+    isRead    Boolean  @default(false)
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
