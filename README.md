@@ -1,3 +1,34 @@
+<h1 align="center"> Tugas Besar : Deliverable 4 <h4 align="center"> Kelompok 7 - Smart Farming Sistem <h4> <h1>
+
+## Deskripsi 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/110550218/199711955-354632d1-cb0c-449f-8f3a-461be3d38099.png">
+</div>
+
+<p align="justify"> Easefarm adalah perusahaan yang bergerak di sektor pertanian, yang menerapkan teknologi dalam praktik pertanian, mengadopsi konsep yang dikenal sebagai “Smart Farming”. Kami memadukan penggunaan teknologi dengan konsep-konsep pertanian modern untuk membantu memudahkan pengguna dalam bertani. Pada tugas besar ke 4 ini kami akan mengembangkan inovasi pada bisnis proses 3 yaitu panen dan produksi. <p>
+
+## Anggota Kelompok 10
+  > Gibran Fasha - 18221069
+  
+  > Devina Ar’raudah - 1822113
+ 
+  > Adrenalin Apprizal - 18221125
+
+  > M. Hanif Al Faithoni - 1822135
+  
+  > Kevin Prayoga - 18221141
+
+## Alur Penggunaan 
+<p align="justify"> Alur penggunaan dari easefarm ini dimulai dari 
+  1. Melakukan login dengan username : gibranfsh dan password : gibranfsh
+  2. Melihat notifikasi lahan yang siap panen
+  3. Melihat detail lahan
+  4. Menerima/Menolak job untuk memanen
+  5. Jika menerima maka lakukan panen lahan
+  6. Jika proses panen sudah selesai, tekan tombo "finish"
+</p>
+
+## Penjelasan
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
