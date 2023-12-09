@@ -17,7 +17,7 @@ export default function Login() {
         redirect: false,
         username: data.username,
         password: data.password,
-        callbackUrl: "/dashboard",
+        callbackUrl: "/",
       });
 
       if (res?.error) {
@@ -25,7 +25,7 @@ export default function Login() {
         throw new Error(res.error);
       } else {
         toast.success("Login Success");
-        router.push("/dashboard");
+        router.push("/");
         router.refresh();
       }
     } catch (error) {
