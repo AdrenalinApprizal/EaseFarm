@@ -46,7 +46,7 @@ const Navbar = ({
     setIsNotificationOpen(!isNotificationOpen);
   };
 
-  if (formattedPathName() === "Dashboard") {
+  if (formattedPathName() === "") {
     return (
       <div className="w-full z-50 bg-[#044D3A] relative top-0 left-0 transition">
         <style>
@@ -85,7 +85,7 @@ const Navbar = ({
                   width={32}
                   height={32}
                 />
-                <a href="/dashboard">
+                <a href="/">
                   <p className="text-xl font-semibold text-white">EaseFarm</p>
                 </a>
               </div>
@@ -185,7 +185,7 @@ const Navbar = ({
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Image src="/logonavbar.png" alt="logo" width={32} height={32} />
-            <a href="/dashboard">
+            <a href="/">
               <p className="text-xl font-semibold text-white">EaseFarm</p>
             </a>
           </div>
